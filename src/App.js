@@ -7,7 +7,7 @@ import './App.css';
 function App() {
 // 깃 연동 테스트
 // 젠킨스 빌드 테스트
-  let [글제목, 글제목변경] = useState(['여자 코트 추천', "홍대 텐동 맛집", "파이썬독학", "AWS 서버생성"]);
+  let [글제목, 글제목변경] = useState(['남자 코트 추천', "홍대 텐동 맛집", "파이썬독학", "AWS 서버생성"]);
   let [model, modelChange] = useState(false);
   let [따봉, 따봉변경] = useState([0, 0, 0]);
   let [누른제목, 누른제목변경] = useState(0);
