@@ -1,84 +1,52 @@
 /* eslint=disable */ 
-
-import React, { useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
+
 function App() {
-// 깃 연동 테스트
-// 젠킨스 빌드 테스트
-  let [글제목, 글제목변경] = useState(['남자 코트 추천', "홍대 텐동 맛집", "파이썬독학", "AWS 서버생성", "리액트 예약 시스템"]);
-  let [model, modelChange] = useState(false);
-  let [따봉, 따봉변경] = useState([0, 0, 0]);
-  let [누른제목, 누른제목변경] = useState(0);
-  let [입력값, 입력값변경] = useState('');
-
-  function 리스트추가(val){ 
-    let changelist = [...글제목]
-    changelist.unshift(val); 
-    글제목변경(changelist); 
-    따봉증가();
-  }
-
-  function 따봉추가(idx){ 
-    let changel따봉 = [...따봉]
-    changel따봉[idx]++; 
-    따봉변경(changel따봉); 
-  }
-
-  function 따봉증가(){ 
-    let changel따봉 = [...따봉]
-    changel따봉.unshift(0); 
-    따봉변경(changel따봉); 
-  }
-
+  
   return (
-
     <div className="App">
-      <div className="black-nav">
-        <div>개발 blog</div>
+      
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand href="#home">방탈출 사이트</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <Nav.Link href="#home">Home</Nav.Link>
+              <Nav.Link href="#link">테마</Nav.Link>
+              <NavDropdown title="지점" id="basic-nav-dropdown">
+                <NavDropdown.Item href="#action/3.1">아쿠아마린점</NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.2">
+                  루비점
+                </NavDropdown.Item>
+                <NavDropdown.Item href="#action/3.3">다이아몬드점</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="#action/3.4">
+                  강남 1호점
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+
+      <div class="bg-light p-5 rounded-lg m-3">
+        <h1 class="display-4">어서오세요!</h1>
+        <p class="lead">이곳은 방탈출 예약 하는 곳 입니다.</p>
+        <hr class="my-4" />
+        <p>여러분의 시간을 투자하세요</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Go</a>
       </div>
-     
-
-      {
-        글제목.map(function(subject, idx){
-          return <div className='list' key={idx} >
-            <h3>
-              <span  onClick={ ()=>{ modelChange(true); 누른제목변경(idx); } }>{subject}</span>
-              <span onClick={ ()=>{ 따봉추가(idx); } } >👍</span> {따봉[idx]} 
-            </h3>
-            <p>2월 19일 발행</p>
-            <hr />
-          </div>
-        })
-      }
-
-      <div className="publish">
-        <input onChange={ (e)=>{ 입력값변경(e.target.value); } }/>
-        <button onClick={ ()=>{ 리스트추가(입력값); } }>저장</button>
-      </div>
-
-      {/* <input onChange={ (e)=>{ 입력값변경(e.target.value) } } /> */}
-      <button onClick={ ()=>{ modelChange(!model); } } >열고닫기</button>
-
-      {
-        !!model ? <Modal 글제목={글제목} 누른제목={누른제목}/> : null
-      }
-
+    
     </div>
   );
-}
-
-function Modal(props){
-  return(
-
-    <div className="modal">
-      <h2>제목 : { props.글제목[props.누른제목] }</h2>
-      <p>날짜</p>
-      <p>상세내용</p>
-    </div>
-
-  )
 }
 
 export default App;
