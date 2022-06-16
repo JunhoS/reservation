@@ -48,19 +48,19 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-md-4">
-            <img src="room1.jpg" width="100%"/>
+            <img src="room1.jpg" width="100%" height="300em"/>
             <h4>테마1</h4>
             <p>액션/잡입</p>
             <a class="btn btn-primary btn-sm" href="#" role="button">예약하기</a>
           </div>
           <div className="col-md-4">
-            <img src="room2.jpg" width="100%"/>
+            <img src="room2.jpg" width="100%" height="300em"/>
             <h4>테마2</h4>
             <p>스릴러/공포</p>
             <a class="btn btn-primary btn-sm" href="#" role="button">예약하기</a>
           </div>
           <div className="col-md-4">
-            <img src="room3.jpg" width="100%"/>
+            <img src="room3.jpg" width="100%" height="300em"/>
             <h4>테마3</h4>
             <p>드라마/감동</p>
             <a class="btn btn-primary btn-sm" href="#" role="button">예약하기</a>
