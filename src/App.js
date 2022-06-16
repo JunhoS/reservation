@@ -49,7 +49,7 @@ function App() {
         <div className="row">
           <div className="col-md-4">
             <img src="room1.jpg" width="100%" height="300em"/>
-            <h4>테마1</h4>
+            <h4>테마1</h4> 
             <p>액션/잡입</p>
             <a class="btn btn-primary btn-sm" href="#" role="button">예약하기</a>
           </div>
