@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import './App.css';
 import themaData from './data.js';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Main() {
 
@@ -17,6 +18,15 @@ function Main() {
           }
 
         </div>
+        <button className="btn btn-primary" onClick={()=>{
+          axios.get()
+          .then(()=>{
+
+          })
+          .catch(()=>{
+            
+          });
+        }}>더보기</button>
       </div>
   );
 }

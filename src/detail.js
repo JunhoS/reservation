@@ -1,10 +1,34 @@
 /* eslint=disable */ 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import './Detail.scss';
+
+// class Detail2 extends React.Component {
+
+//     componentDidMount(){
+
+//     }
+
+//     componentWillUnmount(){
+
+//     }
+// }
+
 
 function Detail(props) {
+
+
+    let [alert, alertChange]  = useState(true);
+    let [inputValue, inputValueChng] = useState();
+
+    
+    useEffect(()=>{
+        // console.log(111);
+        let timer = setTimeout(()=>{alertChange(false)}, 2000);
+        return ()=>{clearTimeout(timer)}
+    },[]);
 
     let { id } = useParams();
     let navigate = useNavigate();
@@ -24,8 +48,18 @@ function Detail(props) {
     <div>
         <div className="container">
             <Box>
-                <DetailTitle Color="red" >상세페이지</DetailTitle>
+                <DetailTitle className="red" >상세페이지</DetailTitle>
             </Box>
+
+            <input onChange={ (e)=>{ inputValueChng(e.target.value) } }/>
+
+            {
+                alert === true ? (
+                    <div className="my-alert2">
+                        <p>재고가 얼마 남지 않았습니다.</p>
+                    </div>
+                ) : null
+            }
             <div className="row">
                 <div className="col-md-6">
                     <img src={ "../" + item.src } width="100%" />

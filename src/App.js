@@ -29,12 +29,8 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link>
-                <Link to="/">Home</Link>
-              </Nav.Link>
-              <Nav.Link>
-                <Link to="/details">테마</Link>
-              </Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/details">테마</Nav.Link>
               <NavDropdown title="지점" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">아쿠아마린점</NavDropdown.Item>
                 {/* <NavDropdown.Item href="#action/3.2">
