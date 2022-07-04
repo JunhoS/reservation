@@ -51,15 +51,15 @@ function Detail(props) {
                 <DetailTitle className="red" >상세페이지</DetailTitle>
             </Box>
 
-            <input onChange={ (e)=>{ inputValueChng(e.target.value) } }/>
+            {/* <input onChange={ (e)=>{ inputValueChng(e.target.value) } }/> */}
 
-            {
+            {/* {
                 alert === true ? (
                     <div className="my-alert2">
                         <p>재고가 얼마 남지 않았습니다.</p>
                     </div>
                 ) : null
-            }
+            } */}
             <div className="row">
                 <div className="col-md-6">
                     <img src={ "../" + item.src } width="100%" />
