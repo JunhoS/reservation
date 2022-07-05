@@ -1,11 +1,13 @@
 var themaData = [
     {
         id : 0,
-        title : "테마1",
-        content : "",
+        title : "라프텔",
+        location : "아쿠아마린점",
+        explain : "무엇을 원하든 상상 그 이상을 얻을 것이다 부? 명예? 권력? 이 세상 모든것이 그곳에 있다.",
         genre : "액션/잡입",
         src : "room1.jpg",
         level : 3,
+        playTime : "75분",
         hashTeg : "#공공칠 #스펙타클",
         timeSet : [
             { time:"10:40", reservationFlg:false },
@@ -17,11 +19,13 @@ var themaData = [
     },
     {
         id : 1,
-        title : "테마2",
-        content : "",
+        title : "복도",
+        location : "아쿠아마린점",
+        explain : "매일 밤, 같은 시각 날 괴롭히는 소리.. \"날 제발 가만히 놔둬\"\n'우리의 목소릴 들어줘' 밤마다 계속되는 그것은 무엇인가?",
         genre : "스릴러/공포",
         src : "room2.jpg",
         level : 4,
+        playTime : "60분",
         hashTeg : "#다리떨림 #너무무서움",
         timeSet : [
             { time:"10:40", reservationFlg:false },
@@ -36,11 +40,13 @@ var themaData = [
     },
     {
         id : 2,
-        title : "테마3",
-        content : "",
+        title : "첫만남",
+        location : "아쿠아마린점",
+        explain : "그때 그 시절.. 우리 모두가 행복했던 그 순간을 잊을수 없다.",
         genre : "드라마/감동",
         src : "room3.jpg",
         level : 2,
+        playTime : "60분",
         hashTeg : "#감동 #뭉클 #가족",
         timeSet : [
             { time:"10:40", reservationFlg:true },

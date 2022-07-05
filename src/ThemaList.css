@@ -1,0 +1,23 @@
+
+/*예약*/
+.date-select {height:115px; border-top:1px dashed #c1beb3; border-bottom:1px dashed #c1beb3; margin-top:40px; text-align:center; padding-top:30px; margin-bottom:50px;position:relative;z-index:12;}
+.date-select:after {content:''; display:block; clear:both; height:0; visibility:hidden;}
+.date-select .day {width:367px; height:48px; background:url('/public/bg_date_box.png') no-repeat 0 0; margin:0 0 0 0;line-height:130%}
+.date-select div.check {position:absolute;top:35px;right:0}
+.date-select a {display:inline-block; width:170px; }
+.date-select a.red_btn { height:45px; font-size:16px; line-height:45px;color:#fff;  background:#5490ff; font-family: 'Nanum Square'; font-style: bold; font-weight: 700;border-radius:40px;}
+.date-select a.red_btn:hover{color:#fff; background:#02057e;}
+.date-select div.caption {color:#000; font-size:15px; background:#ffff00; margin:46px 0; padding:3px 0;}
+
+
+.date-select .day span {font-size:16px; color:#333; line-height:44px; padding:0 0; position:relative; box-sizing: border-box;}
+.date-select .day>div {float: right; width: 154px; margin-left: 30px; margin-right: 55px;}
+.date-select .day input.date {width:165px; height:29px; border:none; margin:0; padding:0; background:none; position:relative;font-size:16px}
+.date-select .day img.ui-datepicker-trigger {cursor:pointer;position:absolute;top:30px;left:355px}
+.date-select .day .ui-datepicker-trigger {cursor:pointer;position:absolute;top:30px;left:355px;width:48px;height:48px;}
+.date-select a.calendar {float:left;}
+.date-select p.clear {padding:15px 20px 0 0;font-size:14px;float:left}
+
+
+.reactCalendarUi {width:170px; background-color:transparent; border:none; height:46px; font-size:18px; font-family: 'Roboto', sans-serif; cursor:pointer; }
+

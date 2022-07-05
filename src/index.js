@@ -5,12 +5,35 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 import { HashRouter, BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {createStore} from 'redux';
+
+
+let initData = {
+  thema : {},
+  times : {}
+};
+
+function reducer(stete=initData, action){
+  if(action.type === "selectThema"){
+    return {
+      thema : action.thema,
+      times : action.times
+    };  
+  }else{
+    return stete;
+  }
+}
+
+let store = createStore(reducer);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>
 );
