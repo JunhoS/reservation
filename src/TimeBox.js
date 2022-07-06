@@ -13,7 +13,7 @@ function TimeBox(props) {
         class={ !!props.times.reservationFlg ? '' : 'end' }
         onClick={()=>{ 
           if(!!props.times.reservationFlg){
-            props.dispatch({ type : "selectThema", thema:props.thema, times:props.times });
+            props.dispatch({ type : "selectThema", thema:props.thema, times:props.times, selectday:props.selectday });
             navigate("/themaDetail")} 
           }
         }

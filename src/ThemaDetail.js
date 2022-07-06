@@ -5,6 +5,31 @@ import {connect} from 'react-redux';
 
 
 function ThemaDetail(props) {
+	let aDays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+	let selectDate = props.selectday;
+	let sYear = "";
+	let sMonth = "";
+	let sDate = "";
+	let sDay = "";
+	let sSelectDate = "";
+	let sSelectDay = "";
+	console.log(selectDate);
+	if(selectDate){
+		sYear = selectDate.getFullYear();
+		sMonth = selectDate.getMonth() + 1;
+		if(sMonth < 10){
+			sMonth = "0" + sMonth;
+		}
+		sDate = selectDate.getDate();
+		if(sDate < 10){
+			sDate = "0" + sDate;
+		}
+		sDay = selectDate.getDay();
+		sSelectDate = sYear+"-"+sMonth+"-"+sDate;
+		sSelectDay = aDays[sDay];
+	}
+
+
   return (
     <div className="container">
       <div className="wrap">
@@ -36,7 +61,7 @@ function ThemaDetail(props) {
 						</tr>
 						<tr>
 							<th>예약일 (Date)</th>
-							<td>2022-07-05 화요일</td>
+							<td>{sSelectDate + " " + sSelectDay}</td>
 						</tr>
 						<tr>
 							<th>예약시간</th>
@@ -53,13 +78,13 @@ function ThemaDetail(props) {
 							<th>인원 (Players)</th>
 							<td>
 								<select name="players" id="players" className="select" style={{width:"310px"}} title="인원을 입력하세요" onchange="Cost_Ch(this.form);">
-                  <option value="1:50000">1 명 (50,000원)</option>
-                  <option value="2:50000">2 명 (50,000원)</option>
-                  <option value="3:69000">3 명 (69,000원)</option>
-                  <option value="4:84000">4 명 (84,000원)</option>
-                  <option value="5:100000">5 명 (100,000원)</option>
-                  <option value="6:114000">6 명 (114,000원)</option>
-                </select>
+									<option value="1:50000">1 명 (50,000원)</option>
+									<option value="2:50000">2 명 (50,000원)</option>
+									<option value="3:69000">3 명 (69,000원)</option>
+									<option value="4:84000">4 명 (84,000원)</option>
+									<option value="5:100000">5 명 (100,000원)</option>
+									<option value="6:114000">6 명 (114,000원)</option>
+								</select>
 							</td>
 						</tr>
 						<tr>
@@ -161,7 +186,8 @@ function ThemaDetail(props) {
 function ThemaProps(state){
   return{
     thema : state.thema,
-    times : state.times
+    times : state.times,
+    selectday : state.selectday
   }
 }
 

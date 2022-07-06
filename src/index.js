@@ -11,18 +11,18 @@ import {createStore} from 'redux';
 
 let initData = {
   thema : {},
-  times : {}
+  times : {},
+  selectday : new Date()
 };
 
 function reducer(stete=initData, action){
   if(action.type === "selectThema"){
-    return {
-      thema : action.thema,
-      times : action.times
-    };  
-  }else{
-    return stete;
+    stete.thema = action.thema;
+    stete.times = action.times;
+  }else if(action.type === "selectday"){
+    stete.selectday = action.selectday;
   }
+  return stete;
 }
 
 let store = createStore(reducer);

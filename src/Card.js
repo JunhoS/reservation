@@ -44,7 +44,7 @@ function Card(props) {
         <p className="tag_txt">{props.thema.explain}</p>
         <ul className="reserve_Time">
           {
-            props.thema.timeSet.map((times, i) => { return <TimeBox times={times} thema={props.thema} idx={i}/> })
+            props.thema.timeSet.map((times, i) => { return <TimeBox times={times} thema={props.thema} idx={i} selectday={props.selectday} /> })
           }
         </ul>
       </div>
