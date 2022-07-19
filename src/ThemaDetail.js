@@ -1,19 +1,23 @@
 /* eslint=disable */ 
 import React, {useEffect, useState} from 'react';
 import './Detail.scss';
-import {connect} from 'react-redux';
+import {connect, useSelector} from 'react-redux';
 
 
-function ThemaDetail(props) {
+function ThemaDetail() {
+	let state= useSelector((state)=>state);
+
 	let aDays = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
-	let selectDate = props.selectday;
+	let selectDate = state.selectday;
 	let sYear = "";
 	let sMonth = "";
 	let sDate = "";
 	let sDay = "";
 	let sSelectDate = "";
 	let sSelectDay = "";
-	console.log(selectDate);
+	
+
+
 	if(selectDate){
 		sYear = selectDate.getFullYear();
 		sMonth = selectDate.getMonth() + 1;
@@ -53,11 +57,11 @@ function ThemaDetail(props) {
 					<tbody>
 						<tr>
 							<th>지점</th>
-							<td><b className="F20 red">{props.thema.location}</b> <p className="PT10">※ 매장을 혼동하는 경우가 많습니다. 지점확인 꼭 부탁드립니다.</p></td>
+							<td><b className="F20 red">{state.thema.location}</b> <p className="PT10">※ 매장을 혼동하는 경우가 많습니다. 지점확인 꼭 부탁드립니다.</p></td>
 						</tr>
 						<tr>
 							<th>테마 (Room)</th>
-							<td>{props.thema.title}</td>
+							<td>{state.thema.title}</td>
 						</tr>
 						<tr>
 							<th>예약일 (Date)</th>
@@ -65,11 +69,11 @@ function ThemaDetail(props) {
 						</tr>
 						<tr>
 							<th>예약시간</th>
-							<td>{props.times.time}</td>
+							<td>{state.times.time}</td>
 						</tr>
 						<tr>
 							<th>게임시간</th>
-							<td>{props.thema.playTime}</td>
+							<td>{state.thema.playTime}</td>
 						</tr>
 						<input type="hidden" name="booking_num" value="1"/>
 						<input type="hidden" name="next_time" value=""/>
@@ -183,13 +187,6 @@ function ThemaDetail(props) {
   );
 }
 
-function ThemaProps(state){
-  return{
-    thema : state.thema,
-    times : state.times,
-    selectday : state.selectday
-  }
-}
 
 
-export default connect(ThemaProps)(ThemaDetail);
+export default ThemaDetail;

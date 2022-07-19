@@ -1,10 +1,11 @@
 /* eslint=disable */ 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {connect} from 'react-redux';
+import {connect, useDispatch} from 'react-redux';
 
 function TimeBox(props) {
 
+	let dispatch = useDispatch();
   let navigate = useNavigate();
 
   return (
@@ -13,7 +14,7 @@ function TimeBox(props) {
         class={ !!props.times.reservationFlg ? '' : 'end' }
         onClick={()=>{ 
           if(!!props.times.reservationFlg){
-            props.dispatch({ type : "selectThema", thema:props.thema, times:props.times, selectday:props.selectday });
+            dispatch({ type : "selectThema", thema:props.thema, times:props.times, selectday:props.selectday });
             navigate("/themaDetail")} 
           }
         }
@@ -30,11 +31,4 @@ function TimeBox(props) {
   );
 }
 
-function ThemaProps(store){
-  return{
-    store : store
-  }
-}
-
-
-export default connect(ThemaProps)(TimeBox);
+export default TimeBox;

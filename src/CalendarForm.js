@@ -4,12 +4,14 @@ import './ThemaList.css';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import {connect} from 'react-redux';
+import {connect, useDispatch, useSelector} from 'react-redux';
 
 // let oThemaContext = React.createContext();
 
 function CalendarForm(props){
-  let [selectday, selectdayChange] = useState(props.state.selectday);
+	let dispatch= useDispatch();
+	let state= useSelector((state)=>state);
+  let [selectday, selectdayChange] = useState(state.selectday);
   let oToday = new Date();
   let sYear = oToday.getFullYear();
   let sMonth = oToday.getMonth();
@@ -30,7 +32,7 @@ function CalendarForm(props){
             onChange={
               (date) => { 
                 selectdayChange(date);
-                props.dispatch({ type : "selectday", selectday:date });
+                dispatch({ type : "selectday", selectday:date });
               }
             }
             dateFormat="yyyy-MM-dd"
@@ -44,11 +46,6 @@ function CalendarForm(props){
   )
 }
 
-function stateProps(state){
-  return{
-    state : state
-  }
-}
 
 
-export default connect(stateProps)(CalendarForm);
+export default CalendarForm;
