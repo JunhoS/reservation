@@ -1,17 +1,22 @@
 /* eslint=disable */ 
-import React, {useState} from 'react';
+import React, {useState, lazy, Suspense} from 'react';
 import './App.css';
 
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import Main from './main.js';
-import ThemaDetail from './ThemaDetail.js';
-import Bypass from './Bypass.js';
-import ThemaList from './ThemaList.js';
 import { Link, Route, Routes } from 'react-router-dom';
 
+// import Main from './main.js';
+// import ThemaList from './ThemaList.js';
+// import ThemaDetail from './ThemaDetail.js';
+// import Bypass from './Bypass.js';
+
+let Main = lazy(()=>{return import('./main.js')});
+let ThemaList = lazy(()=>{return import('./ThemaList.js')});
+let ThemaDetail = lazy(()=>{return import('./ThemaDetail.js')});
+let Bypass = lazy(()=>{return import('./Bypass.js')});
 
 function App() {
 
@@ -43,10 +48,26 @@ function App() {
       </Navbar>
 
       <Routes>
-          <Route path="/" element={ <Main /> } />
-          <Route path="/themas" element={ <ThemaList /> } />
-          <Route path="/themaDetail" element={ <ThemaDetail /> } />
-          <Route path="/:id" element={ <Bypass /> } />
+          <Route path="/" element={ 
+              <Suspense fallback={<div>로딩중...</div>}>
+                <Main /> 
+              </Suspense>
+          } />
+          <Route path="/themas" element={ 
+              <Suspense fallback={<div>로딩중...</div>}>
+                <ThemaList /> 
+            </Suspense>
+          } />
+          <Route path="/themaDetail" element={ 
+              <Suspense fallback={<div>로딩중...</div>}>
+                <ThemaDetail /> 
+              </Suspense>
+          } />
+          <Route path="/:id" element={ 
+              <Suspense fallback={<div>로딩중...</div>}>
+                <Bypass /> 
+              </Suspense>
+          } />
       </Routes>
     
     </div>
